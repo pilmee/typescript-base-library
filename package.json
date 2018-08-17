@@ -2,7 +2,7 @@
   "name": "@example/ts-commons",
   "descriptions": "ts-commons",
   "version": "1.0.0",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "main": "build/ts-commons.bundle.js",
   "types": "build/src/main.d.ts",
   "scripts": {
