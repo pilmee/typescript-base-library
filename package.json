@@ -1,0 +1,52 @@
+{
+  "name": "@example/ts-commons",
+  "descriptions": "ts-commons",
+  "version": "1.0.0",
+  "license": "GPL-2.0",
+  "main": "build/ts-commons.bundle.js",
+  "types": "build/src/main.d.ts",
+  "scripts": {
+    "test": "karma start",
+    "build": "webpack --config webpack.config.js",
+    "lint": "tslint -- src/**/*.ts",
+    "doc": "typedoc --module commonjs --target es6 --out doc/ --exclude src/**/*.spec.ts src/"
+  },
+  "dependencies": {
+    "@types/date-fns": "^2.6.0",
+    "date-fns": "^1.29.0",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.20"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.3",
+    "@types/es6-shim": "^0.31.35",
+    "@types/jasmine": "~2.5.53",
+    "@types/node": "~6.0.60",
+    "@types/sinon": "^2.3.3",
+    "chai": "^4.1.1",
+    "codelyzer": "~3.1.1",
+    "generate-changelog": "^1.7.0",
+    "jasmine-core": "~2.6.2",
+    "jasmine-spec-reporter": "~4.1.0",
+    "karma": "~1.7.0",
+    "karma-chrome-launcher": "~2.1.1",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-typescript": "^3.0.8",
+    "mocha": "^3.5.0",
+    "mock-local-storage": "^1.0.5",
+    "phantomjs-polyfill-object-assign": "0.0.2",
+    "protractor": "~5.1.2",
+    "sinon": "^3.2.0",
+    "ts-loader": "^3.2.0",
+    "ts-node": "~3.2.0",
+    "tslint": "^5.7.0",
+    "tslint-config-standard": "^6.0.1",
+    "typedoc": "^0.8.0",
+    "typescript": "~2.4.2",
+    "webpack": "^3.10.0"
+  }
+}
