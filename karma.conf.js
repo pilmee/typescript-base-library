@@ -6,7 +6,8 @@ module.exports = function(config) {
       require('karma-jasmine'),
       require('karma-phantomjs-launcher'),
       require('karma-jasmine-html-reporter'),
-      require('karma-typescript')
+      require('karma-typescript'),
+      require('karma-coverage-istanbul-reporter'),
     ],
     exclude: [],
     files: [
@@ -20,13 +21,27 @@ module.exports = function(config) {
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    reporters: ['progress', 'karma-typescript'],
+    reporters: ['progress', 'karma-typescript', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
     browsers: ['PhantomJS'],
     singleRun: true,
-    concurrency: Infinity
-  })
-}
+    concurrency: Infinity,
+    coverageIstanbulReporter: {
+      reports: ['json'],
+      dir: require('path').join(__dirname, 'coverage'),
+      file: 'coverage.json',
+      combineBrowserReports: true,
+      fixWebpackSourcePaths: true,
+      skipFilesWithNoCoverage: true,
+      'report-config': {
+        html: {
+          subdir: 'html'
+        }
+      },
+    }
+  });
+};
+
