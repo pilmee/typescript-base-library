@@ -1,4 +1,4 @@
-# TYPESCRIPT BASE LIBRARY
+# TYPESCRIPT BASE LIBRARY [![Build Status](https://travis-ci.org/pilmee/typescript-base-library.svg?branch=master)](https://travis-ci.org/pilmee/typescript-base-library)
 Project structure description:
 
 Dir           | Description 
