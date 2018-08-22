@@ -5,10 +5,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'ts-commons.bundle.js',
-    libraryTarget: "umd",
-    library: "ts-commons"
+    libraryTarget: 'umd',
+    library: 'ts-commons'
   },
-   resolve: {
+  resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.js']
   },
   module: {
