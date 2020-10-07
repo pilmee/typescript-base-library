@@ -4,14 +4,12 @@ module.exports = function(config) {
     frameworks: ['jasmine', 'karma-typescript'],
      plugins: [
       require('karma-jasmine'),
-      require('karma-phantomjs-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-typescript'),
       require('karma-coverage-istanbul-reporter'),
     ],
     exclude: [],
     files: [
-      '../node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       '**/**/*.spec.ts',
       { pattern: "**/**/!(main.d).ts" }, // *.tsx for React Jsx
     ],
@@ -26,7 +24,6 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['PhantomJS'],
     singleRun: true,
     concurrency: Infinity,
     coverageIstanbulReporter: {
