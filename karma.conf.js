@@ -1,12 +1,16 @@
+const webpackCfg = require('./webpack.config');
+
 module.exports = function(config) {
   config.set({
     basePath: './src/',
     frameworks: ['jasmine', 'karma-typescript'],
-     plugins: [
+    browsers: ["ChromeHeadless"],
+    plugins: [
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
       require('karma-typescript'),
       require('karma-coverage-istanbul-reporter'),
+      require('karma-chrome-launcher'),
     ],
     exclude: [],
     files: [
@@ -16,6 +20,7 @@ module.exports = function(config) {
     preprocessors: {
         "**/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
     },
+    webpack: webpackCfg,
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
@@ -27,7 +32,7 @@ module.exports = function(config) {
     singleRun: true,
     concurrency: Infinity,
     coverageIstanbulReporter: {
-      reports: ['json'],
+      reports: ['json', 'text'],
       dir: require('path').join(__dirname, 'coverage'),
       file: 'coverage.json',
       combineBrowserReports: true,

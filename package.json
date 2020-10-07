@@ -10,7 +10,7 @@
     "clean": "rm -Rf build/ coverage/ doc/",
     "doc": "typedoc --module commonjs --target es6 --out doc/ --exclude src/**/*.spec.ts src/",
     "lint": "tslint -- src/**/*.ts",
-    "test": "karma start"
+    "test": "karma start --browsers ChromeHeadless karma.conf.js"
   },
   "dependencies": {
     "@types/date-fns": "^2.6.0",
@@ -19,24 +19,21 @@
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
-    "@types/chai": "^4.0.3",
     "@types/es6-shim": "^0.31.35",
     "@types/jasmine": "~2.5.53",
     "@types/node": "~6.0.60",
     "@types/sinon": "^2.3.3",
-    "chai": "^4.1.1",
     "codelyzer": "~3.1.1",
     "generate-changelog": "^1.7.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
-    "karma": "^3.0.0",
-    "karma-chrome-launcher": "~2.1.1",
+    "karma": "^3.1.4",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-typescript": "^3.0.8",
-    "mocha": "^5.2.0",
     "mock-local-storage": "^1.0.5",
     "protractor": "^5.4.0",
     "sinon": "^6.1.5",
