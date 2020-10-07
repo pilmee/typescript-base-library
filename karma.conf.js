@@ -1,24 +1,43 @@
-module.exports = function(config) {
+const puppeteer = require('puppeteer');
+process.env.CHROME_BIN = puppeteer.executablePath();
+
+module.exports = function (config) {
   config.set({
     basePath: './src/',
     frameworks: ['jasmine', 'karma-typescript'],
-     plugins: [
+    browsers: ["Chrome_Beta_Headless"],
+    karmaTypescriptConfig: {
+      reports: {
+        "lcovonly": {
+          "directory": "coverage",
+          "subdirectory": "lcov",
+          "filename": "lcov.info"
+        }
+      }
+    },
+    customLaunchers: {
+      Chrome_Beta_Headless: {
+        base: 'Chrome',
+        flags: ['--headless', '--disable-gpu', '--remote-debugging-port=9222', '--no-sandbox'],
+        debug: false
+      }
+    },
+    plugins: [
       require('karma-jasmine'),
-      require('karma-phantomjs-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-typescript'),
       require('karma-coverage-istanbul-reporter'),
+      require('karma-chrome-launcher'),
     ],
     exclude: [],
     files: [
-      '../node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       '**/**/*.spec.ts',
       { pattern: "**/**/!(main.d).ts" }, // *.tsx for React Jsx
     ],
     preprocessors: {
-        "**/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
+      "**/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
     },
-    client:{
+    client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     reporters: ['progress', 'karma-typescript', 'coverage-istanbul'],
@@ -26,13 +45,11 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['PhantomJS'],
     singleRun: true,
     concurrency: Infinity,
     coverageIstanbulReporter: {
-      reports: ['json'],
+      reports: ['json', 'text'],
       dir: require('path').join(__dirname, 'coverage'),
-      file: 'coverage.json',
       combineBrowserReports: true,
       fixWebpackSourcePaths: true,
       skipFilesWithNoCoverage: true,
